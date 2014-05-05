@@ -44,7 +44,7 @@ module.exports = function (grunt) {
       },
       less:{
         files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
-        tasks: ['less:dev']
+        tasks: ['less:dev', 'newer:copy:styles', 'autoprefixer']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
@@ -176,7 +176,7 @@ module.exports = function (grunt) {
           [ '<%= yeoman.app %>/styles/'
           ]
         , files:
-          { '<%= yeoman.app %>/styles/{,/}*.css': '<%= yeoman.app %>/styles/{,*/}*.less'
+          { '<%= yeoman.app %>/styles/styles.css': '<%= yeoman.app %>/styles/styles.less'
           }
         }
       }
@@ -187,7 +187,7 @@ module.exports = function (grunt) {
           ]
         , cleancss: true
         , files:
-          { '<%= yeoman.app %>/styles/{,/}*.css': '<%= yeoman.app %>/styles/{,*/}*.less'
+          { '<%= yeoman.app %>/styles/styles.css': '<%= yeoman.app %>/styles/styles.less'
           }
         }
       }

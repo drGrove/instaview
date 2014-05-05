@@ -1,0 +1,9 @@
+.poloroid {
+  width: 250px;
+  height: 320px;
+  background: grey;
+}
+.poloroid img {
+  height: 20px;
+  width: 20px;
+}
