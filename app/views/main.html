@@ -1,5 +1,5 @@
 <div class="container">
-  <div 
+  <div
     class="poloroid"
     data-ng-repeat="image in images"
   >
@@ -7,7 +7,6 @@
       data-ng-src="{{image.images.low_resolution.url}}"
       alt="{{image.caption.text}}"
     />
-    <div class="caption">
-    </div>
+    <div class="caption" data-ng-bind="image.caption.text"></div>
 </div>
 </div>
