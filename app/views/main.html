@@ -1,6 +1,9 @@
-<div class="header">
-  <button type="button" class="btn btn-primary" data-ng-click="stack()">
-    Stack
-  </button>
+<div class="row">
+    <div
+      class="col-lg-2 col-xs-6 col-sm-4"
+      data-ng-repeat="image in images"
+      data-ng-click="displayImage($index)"
+    >
+    <div draggable dr-src="image"></div>
+  </div>
 </div>
-<div data-ng-repeat="image in images" draggable dr-src="image"></div>

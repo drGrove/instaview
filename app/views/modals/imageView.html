@@ -1,0 +1,28 @@
+<div>
+  <div class="modal-header">
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="profPic">
+          <img 
+            data-ng-src="{{image.user.profile_picture}}" 
+          />
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <a href="http://instagram.com/{{image.user.username}}">{{image.user.username}}</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-4">
+        <img data-ng-src="{{image.images.low_resolution.url}}" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 text-center">
+        {{image.caption.text}}
+      </div>
+    </div>
+  </div>
+</div>

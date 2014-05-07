@@ -2,7 +2,7 @@
 
 angular.module('instaviewApp')
   .factory('Instagram', function ($http) {
-    var dist = 3000;
+    var dist = 500;
     var locations =
     { 'sf':
       { lat: 37.774929
@@ -10,8 +10,8 @@ angular.module('instaviewApp')
       , distance: dist
       }
     , 'ny':
-      { lat: 0
-      , lng: 0
+      { lat: 40.77
+      , lng: 73.98
       , distance: dist
       }
     }

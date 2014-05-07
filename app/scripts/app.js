@@ -5,15 +5,21 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'ui.bootstrap'
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/sf', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/ny',
+        { templateUrl: 'views/main.html'
+        , controller: 'MainCtrl'
+        }
+      )
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/sf'
       });
   });
