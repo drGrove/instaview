@@ -1,12 +1,3 @@
 <div class="container">
-  <div
-    class="poloroid"
-    data-ng-repeat="image in images"
-  >
-    <img
-      data-ng-src="{{image.images.low_resolution.url}}"
-      alt="{{image.caption.text}}"
-    />
-    <div class="caption" data-ng-bind="image.caption.text"></div>
-</div>
+  <div data-ng-repeat="image in images" draggable dr-src="image"></div>
 </div>

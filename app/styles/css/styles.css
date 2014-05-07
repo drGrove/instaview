@@ -1,4 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
+/* Space out content a bit */
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-image: url('/images/background.png');
+}
 .poloroid {
   width: 250px;
   height: 325px;
@@ -6,6 +12,7 @@
   margin-bottom: 5px;
   overflow: hidden;
   background: url('/images/poloroid.jpg');
+  display: inline;
 }
 .poloroid img {
   height: 230px;
