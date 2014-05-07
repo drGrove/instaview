@@ -1,12 +1,32 @@
 .poloroid{
-  width: 250px;
-  height: 325px;
+  width: 250px !important;
+  height: 325px !important;
   background: white;
   margin-bottom: 5px;
   overflow: hidden;
-  background: url('/images/poloroid.jpg');
-  display: inline;
-  
+  position: absolute;
+  -web-kit-transition: all .25s linear;
+  transition: all .25s linear;
+
+  &:before{
+    content: ''; /* create an empty psuedo element */
+    position: absolute; /* positions the tape relative to the box created above rather than the whole page */
+    background-color: rgba(255,255,255,0.4); /* using rgba for the color lets us make the tape transparent */
+    height: 26px; /* height of the tape */
+    /* using :before places the tape on the left of the div */
+    left:100px; /* position from the left edge of the .taped-up div edge */
+    top: -14px; /* position from the top edge of the .taped-up div edge */
+    width: 95px; /* width of the tape */
+    /*rotate the tape 5 degrees counter-clockwise*/
+    -ms-transform:rotate(-5deg); /* IE 9 */
+    -webkit-transform:rotate(-5deg); /* Safari and Chrome */
+    transform:rotate(-5deg); /* Standard syntax (should be last) */
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.1); /* give the tape a slight drop shadow */
+    /* giving the tape an almost transparent dotted border on the right and left gives it a nicely perforated-look at the edges */
+    border-style: dotted;
+    border-color: rgba(0,0,0,0.1);
+    border-width: 0 2px; /* border only on right and left sides */
+  }
 
   img {
     height: 230px;
