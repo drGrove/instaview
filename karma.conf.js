@@ -8,6 +8,10 @@ module.exports = function(config) {
 
     // testing framework to use (jasmine/mocha/qunit/...)
     frameworks: ['jasmine'],
+    plugins:
+    [ 'karma-jasmine'
+    , 'karma-phantomjs-launcher'
+    ],
 
     // list of files / patterns to load in the browser
     files: [
@@ -17,6 +21,10 @@ module.exports = function(config) {
       'app/bower_components/angular-cookies/angular-cookies.js',
       'app/bower_components/angular-sanitize/angular-sanitize.js',
       'app/bower_components/angular-route/angular-route.js',
+      'app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'https://maps.googleapis.com/maps/api/js?sensor=false',
+      'app/bower_components/underscore/underscore.js',
+      'app/bower_components/angular-google-maps/dist/angular-google-maps.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
@@ -46,7 +54,7 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
 
     // Continuous Integration mode
