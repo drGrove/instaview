@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('instaviewApp')
-  .factory('Instagram', function ($http) {
+  .factory('Instagram', function ($http, $q) {
+    var deferred = $q.defer();
     var dist = 500;
     var locations =
     { 'sf':
@@ -27,6 +28,9 @@ angular.module('instaviewApp')
         var params = {}
         if(locations[loc]){
           params = locations[loc]
+        } else {
+          deferred.resolve(false);
+          return deferred.promise;
         }
         params.client_id = clientId
         params.callback = "JSON_CALLBACK"
