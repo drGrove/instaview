@@ -176,7 +176,7 @@ module.exports = function (grunt) {
           [ '<%= yeoman.app %>/styles/'
           ]
         , files:
-          { '<%= yeoman.app %>/styles/css/styles.css': '<%= yeoman.app %>/styles/less/**.less'
+          { '<%= yeoman.app %>/styles/css/css/styles.css': '<%= yeoman.app %>/styles/less/styles.less'
           }
         }
       }
@@ -187,7 +187,7 @@ module.exports = function (grunt) {
           ]
         , cleancss: true
         , files:
-          { '<%= yeoman.app %>/styles/styles.css': '<%= yeoman.app %>/styles/styles.less'
+          { '<%= yeoman.app %>/styles/css/styles.css': '<%= yeoman.app %>/styles/styles.less'
           }
         }
       }
@@ -309,7 +309,14 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
-        }]
+        }, {
+          expand: true,
+          dot: true,
+          cwd: '<%- yeoman.app %>/bower_components/font-awesome',
+          src: ['fonts/*.*'],
+         dest: '<%= yeoman.dist %>/bower_components/font-awesome'
+        }
+        ]
       },
       styles: {
         expand: true,
@@ -401,7 +408,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'bowerInstall',
-    'ess:dist',
+    'less:dist',
     'useminPrepare',
     'concurrent:dist',
     'autoprefixer',
