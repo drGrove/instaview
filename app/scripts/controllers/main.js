@@ -3,7 +3,6 @@
 angular.module('instaviewApp')
   .controller('MainCtrl', function ($scope, Instagram, $window, $modal, $location) {
     $scope.images = [];
-    $scope.isAged = false;
     $scope.locations = Instagram.locations;
     $scope.city = $window.location.hash.split('/')[1]
     Instagram.fetchLocation('media/search', $scope.city).then(function(res){
