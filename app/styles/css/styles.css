@@ -45,11 +45,21 @@
   height: 80px;
   padding: 5px;
 }
-.modal-body {
-  display: inline-block;
+ul {
+  list-style-type: none;
+}
+ul li {
+  list-style-type: none;
 }
 .modal-body img {
+  display: block;
   margin: auto;
-  padding: auto;
-  float: none;
+}
+.modal-body button {
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+.modal-body .angular-google-map-container {
+  margin-top: 5px;
+  height: 200px;
 }

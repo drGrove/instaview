@@ -1,28 +1,116 @@
 <div>
   <div class="modal-header">
     <div class="row">
-      <div class="col-xs-3">
+      <div class="col-xs-2">
         <div class="profPic">
-          <img 
-            data-ng-src="{{image.user.profile_picture}}" 
+          <img
+            data-ng-src="{{image.user.profile_picture}}"
           />
         </div>
       </div>
-      <div class="col-xs-4">
-        <a href="http://instagram.com/{{image.user.username}}">{{image.user.username}}</a>
+      <div class="col-xs-4 text-left">
+        <ul>
+          <li>
+            <a href="http://instagram.com/{{image.user.username}}">{{image.user.username}}</a>
+          </li>
+          <li>
+            <i class="fa fa-thumbs-up"></i> {{image.likes.count}}
+          </li>
+          <li>
+            <i class="fa fa-comments"></i> {{image.comments.count}}
+          </li>
+          <li>
+            <i class="fa fa-tags"></i> {{image.tags.length}}
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-1 col-xs-offset-5">
+        <i class="fa fa-times-circle" data-ng-click="close()"></i>
       </div>
     </div>
   </div>
   <div class="modal-body">
     <div class="row">
-      <div class="col-xs-6 col-xs-offset-4">
+      <div class="col-xs-12 text-center">
         <img data-ng-src="{{image.images.low_resolution.url}}" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1 text-center">
         {{image.caption.text}}
       </div>
+      <div class="col-xs-12" data-ng-if="mapActive">
+        <google-map
+          center="map.center"
+          zoom="map.zoom"
+          control="map.control"
+          refresh="mapActive"
+          options="map.options"
+        >
+          <marker
+            coords="map.center"
+          >
+          </marker>
+        </google-map>
+      </div>
+      <div class="col-xs-12" data-ng-if="commentsActive">
+        <ul>
+          <li
+            data-ng-repeat=""
+          >
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12" data-ng-if="tagsActive">
+        <button
+          data-ng-repeat="tag in image.tags"
+          class="btn btn-primary btn-xs"
+        >
+          <i class="fa fa-tag"></i> {{tag}}
+        </button>
+      </div>
+      <div class="col-xs-12" data-ng-if="likesActive">
+        <ul>
+          <li
+            data-ng-repeat="like in image.likes.data"
+          >
+            <i class="fa fa-thumbs-up"></i>
+            <a href="http://instagram.com/{{like.username}}" data-ng-bind="like.username"></a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </div>
+  <div class="modal-footer">
+    <button 
+      class="btn btn-primary"
+      data-ng-click="toggleMap()"
+      data-ng-show="image.location"
+    >
+      {{!mapActive ? 'Show' : 'Hide'}} Map
+    </button>
+    <button 
+      class="btn btn-primary" 
+      data-ng-click="toggleComments()"
+      data-ng-show="image.comments.count > 0"
+    >
+      {{!commentsActive ? 'Show' : 'Hide'}} Comments
+    </button>
+    <button 
+      class="btn btn-primary" 
+      data-ng-click="toggleLikes()"
+      data-ng-show="image.likes.count > 0"
+    >
+      {{!likesActive ? 'Show' : 'Hide'}} Likes
+    </button>
+    <button 
+      class="btn btn-primary" 
+      data-ng-click="toggleTags()"
+      data-ng-show="image.tags.length > 0"
+      >
+        {{!tagsActive ? 'Show' : 'Hide'}} Tags
+      </button>
+    <button 
+      class="btn btn-danger" 
+      data-ng-click="close()"
+      >
+        Close
+      </button>
   </div>
 </div>

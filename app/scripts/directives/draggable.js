@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('instaviewApp')
-  .directive('draggable', function ($document) {
+  .directive('drag', function ($document) {
     return {
       restrict: 'EA',
       replace: true,
@@ -22,6 +22,7 @@ angular.module('instaviewApp')
           $document.on('mouseup', mouseup);
         });
         function mousemove(event) {
+          scope.image.dragging = true
           y = event.pageY - startY;
           x = event.pageX - startX;
           element.css({
@@ -32,6 +33,7 @@ angular.module('instaviewApp')
         function mouseup() {
           $document.unbind('mousemove', mousemove);
           $document.unbind('mouseup', mouseup);
+          scope.image.dragging = false;
         }
       }
     }

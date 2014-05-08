@@ -5,12 +5,14 @@ angular.module('instaviewApp')
     var dist = 500;
     var locations =
     { 'sf':
-      { lat: 37.774929
+      { fullName: 'San Francisco'
+      , lat: 37.774929
       , lng: -122.419416
       , distance: dist
       }
     , 'ny':
-      { lat: 40.77
+      { fullName: 'New York'
+      , lat: 40.77
       , lng: 73.98
       , distance: dist
       }
@@ -30,5 +32,6 @@ angular.module('instaviewApp')
         params.callback = "JSON_CALLBACK"
         return $http.jsonp(endpoint + path, {params: params})
       }
+    , locations: locations
     };
   });

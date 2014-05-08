@@ -1,9 +1,25 @@
+<div class="container text-center">
+  <select
+    class="form-control"
+    data-ng-model="city"
+    data-ng-change="selectChange()"
+  >
+    <option
+      data-ng-repeat="(key , location) in locations"
+      value="{{key}}"
+      data-ng-selected="key == city"
+    >
+      {{location.fullName}}
+    </option>
+  </select>
+  <hr />
+</div>
 <div class="row">
     <div
       class="col-lg-2 col-xs-6 col-sm-4"
       data-ng-repeat="image in images"
       data-ng-click="displayImage($index)"
     >
-    <div draggable dr-src="image"></div>
+    <div drag dr-src="image"></div>
   </div>
 </div>
