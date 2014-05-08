@@ -11,15 +11,10 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/sf', {
+      .when('/:city', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/ny',
-        { templateUrl: 'views/main.html'
-        , controller: 'MainCtrl'
-        }
-      )
       .otherwise({
         redirectTo: '/sf'
       });

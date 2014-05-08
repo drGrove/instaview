@@ -17,6 +17,24 @@ angular.module('instaviewApp')
       , lng: 73.98
       , distance: dist
       }
+    , 'lv':
+      { fullName: "Las Vegas"
+      , lat: 36.08
+      , lng: 115.17
+      , distance: dist
+      }
+    , 'boston':
+      { fullName: "Boston"
+      , lat: 42.37
+      , lng: 71.03
+      , distance: dist
+      }
+    , 'orlando':
+      { fullName: "Orlando"
+      , lat: 28.55
+      , lng: 81.33
+      , distance: dist
+      }
     }
 
     var endpoint = "https://api.instagram.com/v1/"

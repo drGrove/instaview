@@ -6,7 +6,10 @@ angular.module('instaviewApp')
     $scope.locations = Instagram.locations;
     $scope.city = $window.location.hash.split('/')[1]
     Instagram.fetchLocation('media/search', $scope.city).then(function(res){
-      $scope.images = res.data.data
+      if(res !== false)
+        $scope.images = res.data.data
+      else
+        $location.path('/sf');
     })
     $scope.selectChange = function(){
       $location.path('/' + $scope.city)
