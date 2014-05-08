@@ -50,14 +50,25 @@
         </google-map>
       </div>
       <div class="col-xs-12" data-ng-if="commentsActive">
-        <ul>
+        <h5>Comments</h5>
+        <ul class="comments">
           <li
-            data-ng-repeat=""
+            data-ng-repeat="comment in image.comments.data"
           >
+            <div class="row">
+              <div class="col-xs-1">
+                <img ng-src="{{comment.from.profile_picture}}" style="width: 40px; height: 40px;" />
+              </div>
+              <div class="col-xs-11">
+                <b><a href="http://instagram.com/{{comment.from.username}}">{{comment.from.username}}</a></b><br />
+                {{comment.text}}
+              </div>
+            </div>
           </li>
         </ul>
       </div>
       <div class="col-xs-12" data-ng-if="tagsActive">
+        <h5>Tags</h5>
         <button
           data-ng-repeat="tag in image.tags"
           class="btn btn-primary btn-xs"
@@ -66,6 +77,7 @@
         </button>
       </div>
       <div class="col-xs-12" data-ng-if="likesActive">
+        <h5>Likes</h5>
         <ul>
           <li
             data-ng-repeat="like in image.likes.data"
@@ -78,36 +90,36 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button 
+    <button
       class="btn btn-primary"
       data-ng-click="toggleMap()"
       data-ng-show="image.location"
     >
       {{!mapActive ? 'Show' : 'Hide'}} Map
     </button>
-    <button 
-      class="btn btn-primary" 
+    <button
+      class="btn btn-primary"
       data-ng-click="toggleComments()"
       data-ng-show="image.comments.count > 0"
     >
       {{!commentsActive ? 'Show' : 'Hide'}} Comments
     </button>
-    <button 
-      class="btn btn-primary" 
+    <button
+      class="btn btn-primary"
       data-ng-click="toggleLikes()"
       data-ng-show="image.likes.count > 0"
     >
       {{!likesActive ? 'Show' : 'Hide'}} Likes
     </button>
-    <button 
-      class="btn btn-primary" 
+    <button
+      class="btn btn-primary"
       data-ng-click="toggleTags()"
       data-ng-show="image.tags.length > 0"
       >
         {{!tagsActive ? 'Show' : 'Hide'}} Tags
       </button>
-    <button 
-      class="btn btn-danger" 
+    <button
+      class="btn btn-danger"
       data-ng-click="close()"
       >
         Close

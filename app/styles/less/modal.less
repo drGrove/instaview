@@ -23,8 +23,26 @@ ul {
     margin-right: 2px;
     margin-bottom: 2px;
   }
+  h5 {
+    font-weight: bold;
+  }
   .angular-google-map-container{
     margin-top: 5px;
     height: 200px;
+  }
+  div {
+    margin-top: 2px;
+  }
+  ul {
+    &.comments {
+      li {
+        border-bottom: 1px solid #a9a9a9;
+        padding-bottom: 2px;
+        &:after{
+          content: '';
+          background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);  
+        }
+      }
+    }
   }
 }
